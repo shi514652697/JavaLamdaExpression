@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class StreamAPIClass {
 	
@@ -44,6 +45,11 @@ private EmailGroup[] getEmailGroup(ApplicantDTO applicant)
 	return emailGroup;
 }
 
+private EmailGroup[] getEmailGroup2(ApplicantDTO applicant)
+{
+	return IntStream.range(0, applicant.getEmail().size()).mapToObj(e-> getEmailGroup(applicant.getEmail().get(e))).toArray(EmailGroup[]:: new);
+}
+
 private List<GreDocument> getGreDocument()
 {
 	Set<GreDocument> greDocument = new HashSet<>();
@@ -67,5 +73,8 @@ private EmailGroup getEmailGroup(Email email)
 {
 	return new EmailGroup();
 }
+
+
+
 
 }
