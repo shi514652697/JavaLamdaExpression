@@ -7,6 +7,8 @@ public class ApplicantDTO {
 	private String actionCode;
 	
 	private List<Email> email;
+	
+	//
 
 
 	public List<Email> getEmail() {
