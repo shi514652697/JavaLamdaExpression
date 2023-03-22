@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -54,7 +55,7 @@ private List<GreDocument> getGreDocument()
 {
 	Set<GreDocument> greDocument = new HashSet<>();
 	
-	return greDocument.stream().collect(Collectors.toCollection(ArrayList::new));
+	return greDocument.stream().filter(Objects::nonNull).collect(Collectors.toCollection(ArrayList::new));
 }
 
 private Document[] getDocument(List<Document> document)
